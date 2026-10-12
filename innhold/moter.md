@@ -10,7 +10,9 @@ sted: Skåredalen skole. Inngang ved personalinngangen, døren nærmest parkerin
 
 ## Om møtene
 
-Her kommer generell informasjon om FAU-møtene: hvor ofte vi møtes, hvor lenge møtene varer og hvem som kan delta.
+FAU møtes omtrent én gang i måneden gjennom skoleåret, men hyppigheten varierer noe. Arbeidsgruppene avtaler egne møter ved behov, og hvor ofte de møtes er ulikt fra gruppe til gruppe.
+
+Varigheten varierer også, men et FAU-møte tar som regel rundt en time.
 
 ## Melde inn en sak
 
