@@ -1,0 +1,39 @@
+---
+import { render } from 'astro:content';
+import Side from '../../layouts/Side.astro';
+import { hentArbeidsgrupper } from '../../lib/innhold';
+
+export async function getStaticPaths() {
+  const grupper = await hentArbeidsgrupper();
+  return grupper.map((gruppe) => ({ params: { id: gruppe.id }, props: { gruppe } }));
+}
+
+const { gruppe } = Astro.props;
+const { Content } = await render(gruppe);
+---
+
+<Side
+  tittel={gruppe.data.navn}
+  ingress={gruppe.data.kort}
+  tilbake={{ href: '/arbeidsgrupper/', tekst: 'Alle arbeidsgrupper' }}
+>
+  <div class="boks">
+    {
+      gruppe.data.kontaktperson ? (
+        <p>
+          <strong>Kontaktperson:</strong> {gruppe.data.kontaktperson}
+          <br />
+          Vil du bidra eller har du innspill? <a href="/om/kontakt/">Ta kontakt via FAU</a>.
+        </p>
+      ) : (
+        <p>
+          <strong>Interessert i å bidra?</strong> Ta kontakt med FAU-leder. <a href="/om/kontakt/">Kontakt oss</a>.
+        </p>
+      )
+    }
+  </div>
+
+  <div class="tekst">
+    <Content />
+  </div>
+</Side>

@@ -1,0 +1,46 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { hentSide } from '../lib/innhold';
+
+const forside = await hentSide('forside');
+const { Content } = await render(forside);
+
+const snarveier = [
+  { href: '/arbeidsgrupper/', tittel: 'Arbeidsgrupper', tekst: 'Se hva vi jobber med, og hvem du kan kontakte' },
+  { href: '/moter/', tittel: 'Møter', tekst: 'Neste møte og hvordan du melder inn saker' },
+  { href: '/smarttelefonfri-skole/', tittel: 'Smarttelefonfri skole', tekst: 'Les og last ned veilederen vår' },
+  { href: '/om/kontakt/', tittel: 'Kontakt oss', tekst: 'Spørsmål, innspill eller lyst til å bidra' },
+];
+---
+
+<Base beskrivelse={forside.data.ingress}>
+  <section class="hero">
+    {
+      forside.data.bilde && (
+        <img src={forside.data.bilde} alt="Akvarell av Skåredalen skole" width="1774" height="887" />
+      )
+    }
+    <div class="ramme hero-tekst">
+      <h1>{forside.data.tittel}</h1>
+      {forside.data.ingress && <p>{forside.data.ingress}</p>}
+    </div>
+  </section>
+
+  <div class="ramme side">
+    <div class="tekst">
+      <Content />
+    </div>
+
+    <nav class="snarveier" aria-label="Snarveier">
+      {
+        snarveier.map((snarvei) => (
+          <a class="snarvei" href={snarvei.href}>
+            <strong>{snarvei.tittel}</strong>
+            <span>{snarvei.tekst}</span>
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</Base>

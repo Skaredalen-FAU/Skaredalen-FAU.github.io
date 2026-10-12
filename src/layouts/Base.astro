@@ -1,0 +1,92 @@
+---
+import '@fontsource-variable/fraunces';
+import '../styles/global.css';
+import { hentSide } from '../lib/innhold';
+
+interface Props {
+  tittel?: string;
+  beskrivelse?: string | null;
+}
+
+const { tittel, beskrivelse } = Astro.props;
+const kontakt = await hentSide('kontakt');
+const fullTittel = tittel ? `${tittel} – Skåredalen FAU` : 'Skåredalen FAU';
+
+const meny = [
+  { href: '/arbeidsgrupper/', tekst: 'Arbeidsgrupper' },
+  { href: '/moter/', tekst: 'Møter' },
+  { href: '/referater/', tekst: 'Referater' },
+  { href: '/aarshjul/', tekst: 'Årshjul' },
+  { href: '/17-mai/', tekst: '17. mai' },
+  { href: '/smarttelefonfri-skole/', tekst: 'Smarttelefonfri skole' },
+  { href: '/om/', tekst: 'Om FAU' },
+];
+const sti = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTittel}</title>
+    {beskrivelse && <meta name="description" content={beskrivelse} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <a class="hopp" href="#innhold">Hopp til innhold</a>
+    <header class="topp">
+      <div class="ramme topp-inn">
+        <a class="logo" href="/">Skåredalen <span>FAU</span></a>
+        <button class="menyknapp" type="button" aria-expanded="false" aria-controls="meny">Meny</button>
+        <nav id="meny" aria-label="Hovedmeny">
+          <ul>
+            {
+              meny.map((punkt) => (
+                <li>
+                  <a href={punkt.href} aria-current={sti.startsWith(punkt.href) ? 'page' : undefined}>
+                    {punkt.tekst}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="innhold">
+      <slot />
+    </main>
+
+    <footer class="bunn">
+      <div class="ramme bunn-inn">
+        <div>
+          <p class="bunn-navn">Skåredalen FAU</p>
+          <p>Foreldrenes arbeidsutvalg ved Skåredalen skole.</p>
+        </div>
+        <div>
+          {
+            kontakt.data.epost && (
+              <p>
+                <a href={`mailto:${kontakt.data.epost}`}>{kontakt.data.epost}</a>
+              </p>
+            )
+          }
+          <p><a href="/om/kontakt/">Kontakt oss</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (() => {
+        const knapp = document.querySelector('.menyknapp');
+        const meny = document.getElementById('meny');
+        knapp.addEventListener('click', () => {
+          const apen = meny.classList.toggle('apen');
+          knapp.setAttribute('aria-expanded', String(apen));
+        });
+      })();
+    </script>
+  </body>
+</html>

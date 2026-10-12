@@ -1,0 +1,14 @@
+---
+import { render } from 'astro:content';
+import Side from '../layouts/Side.astro';
+import { hentSide } from '../lib/innhold';
+
+const side = await hentSide('aarshjul');
+const { Content } = await render(side);
+---
+
+<Side tittel={side.data.tittel} ingress={side.data.ingress}>
+  <div class="aarshjul">
+    <Content />
+  </div>
+</Side>

@@ -1,0 +1,512 @@
+:root {
+  --gronn: #1f4d3a;
+  --gronn-mork: #163729;
+  --gronn-lys: #e4ede6;
+  --krem: #faf6ef;
+  --papir: #ffffff;
+  --tekst: #22302a;
+  --dempet: #5a6a62;
+  --kant: #e2dccf;
+  --gul: #e8a33d;
+  --overskrift: 'Fraunces Variable', Georgia, serif;
+  --brodtekst: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--krem);
+  color: var(--tekst);
+  font-family: var(--brodtekst);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--overskrift);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--gronn-mork);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 2.5rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.4rem;
+}
+
+a {
+  color: var(--gronn);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--gronn-mork);
+}
+
+:focus-visible {
+  outline: 3px solid var(--gul);
+  outline-offset: 2px;
+}
+
+.ramme {
+  width: 100%;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.hopp {
+  position: absolute;
+  left: -999rem;
+}
+
+.hopp:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  background: var(--papir);
+  padding: 0.5rem 1rem;
+}
+
+/* Topp og meny */
+
+.topp {
+  background: var(--papir);
+  border-bottom: 1px solid var(--kant);
+}
+
+.topp-inn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.logo {
+  font-family: var(--overskrift);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--gronn-mork);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--gul);
+}
+
+.topp nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.topp nav a {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.5rem;
+  color: var(--tekst);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.topp nav a:hover {
+  background: var(--gronn-lys);
+}
+
+.topp nav a[aria-current='page'] {
+  background: var(--gronn);
+  color: var(--papir);
+}
+
+.menyknapp {
+  display: none;
+  font: inherit;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--kant);
+  border-radius: 0.5rem;
+  background: var(--papir);
+  color: var(--tekst);
+  cursor: pointer;
+}
+
+@media (max-width: 66rem) {
+  .menyknapp {
+    display: block;
+  }
+
+  .topp nav {
+    display: none;
+    width: 100%;
+  }
+
+  .topp nav.apen {
+    display: block;
+  }
+
+  .topp nav ul {
+    flex-direction: column;
+    padding-top: 0.5rem;
+  }
+
+  .topp nav a {
+    padding: 0.65rem 0.75rem;
+  }
+}
+
+/* Forside */
+
+/* Akvarellen toner ut i hvitt, så den vises hel på hvit bunn i stedet for beskåret bak tekst */
+.hero {
+  background: var(--papir);
+  border-bottom: 1px solid var(--kant);
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  max-width: 76rem;
+  height: auto;
+  margin: 0 auto;
+}
+
+.hero-tekst {
+  padding-top: 0.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 7vw, 3.75rem);
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  max-width: 38rem;
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--dempet);
+}
+
+.snarveier {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.snarvei {
+  display: block;
+  padding: 1.25rem;
+  background: var(--papir);
+  border: 1px solid var(--kant);
+  border-radius: 0.9rem;
+  text-decoration: none;
+  color: var(--tekst);
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+
+.snarvei:hover {
+  border-color: var(--gronn);
+  transform: translateY(-2px);
+  color: var(--tekst);
+}
+
+.snarvei strong {
+  display: block;
+  font-family: var(--overskrift);
+  font-size: 1.2rem;
+  color: var(--gronn-mork);
+}
+
+.snarvei span {
+  color: var(--dempet);
+  font-size: 0.95rem;
+}
+
+/* Vanlige sider */
+
+.side {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.ingress {
+  font-size: 1.2rem;
+  color: var(--dempet);
+  max-width: 42rem;
+  margin: 0 0 2rem;
+}
+
+.tekst {
+  max-width: 42rem;
+}
+
+.tekst > :first-child {
+  margin-top: 0;
+}
+
+.tekst li {
+  margin-bottom: 0.3rem;
+}
+
+.tilbake {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.boks {
+  background: var(--gronn-lys);
+  border-radius: 0.9rem;
+  padding: 1.25rem 1.5rem;
+  max-width: 42rem;
+  margin: 0 0 2rem;
+}
+
+.boks > :first-child {
+  margin-top: 0;
+}
+
+.boks > :last-child {
+  margin-bottom: 0;
+}
+
+.boks h2 {
+  font-size: 1.2rem;
+}
+
+.knapp {
+  display: inline-block;
+  padding: 0.7rem 1.25rem;
+  background: var(--gronn);
+  color: var(--papir);
+  border-radius: 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.knapp:hover {
+  background: var(--gronn-mork);
+  color: var(--papir);
+}
+
+/* Kort: arbeidsgrupper og styret */
+
+.kortliste {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1rem;
+}
+
+.kort {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem;
+  background: var(--papir);
+  border: 1px solid var(--kant);
+  border-radius: 0.9rem;
+}
+
+.kort:has(a):hover {
+  border-color: var(--gronn);
+}
+
+.kort h2,
+.kort h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.4rem;
+}
+
+.kort h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hele kortet er klikkbart */
+.kort h2 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.kort p {
+  margin: 0 0 0.75rem;
+}
+
+.kort .kontakt {
+  margin: auto 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--kant);
+  font-size: 0.95rem;
+  color: var(--dempet);
+}
+
+.merke {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 0.6rem;
+  padding: 0.1rem 0.6rem;
+  background: var(--gronn-lys);
+  color: var(--gronn-mork);
+  border-radius: 99rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.dempet {
+  color: var(--dempet);
+}
+
+/* Møter */
+
+.neste-mote {
+  background: var(--gronn);
+  color: var(--papir);
+  border-radius: 0.9rem;
+  padding: 1.5rem;
+  max-width: 42rem;
+  margin: 0 0 2rem;
+}
+
+.neste-mote h2 {
+  color: var(--papir);
+  font-size: 1rem;
+  font-family: var(--brodtekst);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.4rem;
+  opacity: 0.85;
+}
+
+.neste-mote .dato {
+  font-family: var(--overskrift);
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.neste-mote .dato::first-letter {
+  text-transform: uppercase;
+}
+
+.neste-mote .detaljer {
+  margin: 0.4rem 0 0;
+}
+
+/* Årshjul: tidslinje bygget på flate h2 + ul fra Markdown */
+
+.aarshjul {
+  max-width: 42rem;
+  border-left: 2px solid var(--kant);
+  padding-left: 1.5rem;
+}
+
+.aarshjul h2 {
+  position: relative;
+  font-size: 1.3rem;
+  margin: 2rem 0 0.4rem;
+}
+
+.aarshjul h2:first-child {
+  margin-top: 0;
+}
+
+.aarshjul h2::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.5rem - 0.45rem - 1px);
+  top: 0.35em;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--gul);
+  border: 3px solid var(--krem);
+}
+
+.aarshjul ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+/* Bunn */
+
+.bunn {
+  background: var(--gronn-mork);
+  color: #d5e0d9;
+  font-size: 0.95rem;
+  padding: 2rem 0;
+}
+
+.bunn-inn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 3rem;
+}
+
+.bunn-inn > div:first-child {
+  max-width: 34rem;
+}
+
+.bunn p {
+  margin: 0 0 0.3rem;
+}
+
+.bunn a {
+  color: var(--papir);
+}
+
+.bunn-navn {
+  font-family: var(--overskrift);
+  font-size: 1.15rem;
+  color: var(--papir);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

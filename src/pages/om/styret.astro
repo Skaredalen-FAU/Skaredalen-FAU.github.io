@@ -1,0 +1,29 @@
+---
+import { render } from 'astro:content';
+import Side from '../../layouts/Side.astro';
+import { hentSide } from '../../lib/innhold';
+
+const side = await hentSide('styret');
+const { Content } = await render(side);
+const roller = side.data.roller ?? [];
+---
+
+<Side tittel={side.data.tittel} ingress={side.data.ingress} tilbake={{ href: '/om/', tekst: 'Om FAU' }}>
+  <ul class="kortliste">
+    {
+      roller.map((rolle) => (
+        <li>
+          <div class="kort">
+            <h2>{rolle.rolle}</h2>
+            {rolle.navn && <p>{rolle.navn}</p>}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="tekst">
+    <Content />
+    <p>Ønsker du å komme i kontakt med styret? <a href="/om/kontakt/">Se kontaktinformasjon</a>.</p>
+  </div>
+</Side>

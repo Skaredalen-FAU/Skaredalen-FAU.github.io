@@ -1,0 +1,40 @@
+---
+import { render } from 'astro:content';
+import Side from '../layouts/Side.astro';
+import { formaterDato, hentSide } from '../lib/innhold';
+
+const side = await hentSide('moter');
+const { Content } = await render(side);
+const { neste_mote, klokkeslett, sted } = side.data;
+const detaljer = [klokkeslett && `Kl. ${klokkeslett}`, sted].filter(Boolean).join(' · ');
+---
+
+<Side tittel={side.data.tittel} ingress={side.data.ingress}>
+  <section class="neste-mote">
+    <h2>Neste møte</h2>
+    {
+      neste_mote ? (
+        <div data-dato={neste_mote.toISOString().slice(0, 10)}>
+          <p class="dato">{formaterDato(neste_mote)}</p>
+          {detaljer && <p class="detaljer">{detaljer}</p>}
+        </div>
+      ) : (
+        <p class="dato">Dato kommer</p>
+      )
+    }
+  </section>
+
+  <div class="tekst">
+    <Content />
+  </div>
+</Side>
+
+<script is:inline>
+  // Siden bygges bare når noe endres, så en passert møtedato skjules i nettleseren.
+  (() => {
+    const boks = document.querySelector('[data-dato]');
+    if (!boks) return;
+    const slutt = new Date(boks.dataset.dato + 'T23:59:59');
+    if (slutt < new Date()) boks.innerHTML = '<p class="dato">Dato kommer</p>';
+  })();
+</script>

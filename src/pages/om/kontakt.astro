@@ -1,0 +1,39 @@
+---
+import { render } from 'astro:content';
+import Side from '../../layouts/Side.astro';
+import { hentSide } from '../../lib/innhold';
+
+const side = await hentSide('kontakt');
+const { Content } = await render(side);
+const { epost, telefon_leder, facebook } = side.data;
+---
+
+<Side tittel={side.data.tittel} ingress={side.data.ingress} tilbake={{ href: '/om/', tekst: 'Om FAU' }}>
+  <div class="boks">
+    <p>
+      <strong>E-post:</strong>{' '}
+      {epost ? <a href={`mailto:${epost}`}>{epost}</a> : <span>kommer</span>}
+    </p>
+    {
+      telefon_leder && (
+        <p>
+          <strong>FAU-leder:</strong> <a href={`tel:${telefon_leder.replace(/\s/g, '')}`}>{telefon_leder}</a>
+        </p>
+      )
+    }
+    {
+      facebook && (
+        <p>
+          <strong>Facebook:</strong>{' '}
+          <a href={facebook} rel="noopener">
+            Gruppen for foreldre og foresatte
+          </a>
+        </p>
+      )
+    }
+  </div>
+
+  <div class="tekst">
+    <Content />
+  </div>
+</Side>

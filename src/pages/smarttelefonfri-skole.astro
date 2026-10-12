@@ -1,0 +1,23 @@
+---
+import { render } from 'astro:content';
+import Side from '../layouts/Side.astro';
+import { hentSide } from '../lib/innhold';
+
+const side = await hentSide('smarttelefonfri-skole');
+const { Content } = await render(side);
+---
+
+<Side tittel={side.data.tittel} ingress={side.data.ingress}>
+  {
+    side.data.pdf && (
+      <p>
+        <a class="knapp" href={side.data.pdf}>
+          Last ned veilederen (PDF)
+        </a>
+      </p>
+    )
+  }
+  <div class="tekst">
+    <Content />
+  </div>
+</Side>

@@ -1,0 +1,41 @@
+---
+import Side from '../../layouts/Side.astro';
+import { hentArbeidsgrupper } from '../../lib/innhold';
+
+const grupper = await hentArbeidsgrupper();
+---
+
+<Side
+  tittel="Arbeidsgrupper"
+  ingress="Arbeidet i FAU er organisert i arbeidsgrupper. Her ser du hva vi jobber med akkurat nå."
+>
+  <div class="boks">
+    <p>
+      <strong>FAU er for alle som vil bidra.</strong> Du trenger ikke være klassekontakt for å bli med i en arbeidsgruppe
+      eller foreslå en ny sak. <a href="/om/kontakt/">Ta kontakt med oss</a>.
+    </p>
+  </div>
+
+  <ul class="kortliste">
+    {
+      grupper.map((gruppe) => (
+        <li>
+          <article class="kort">
+            {gruppe.data.status && <span class="merke">{gruppe.data.status}</span>}
+            <h2>
+              <a href={`/arbeidsgrupper/${gruppe.id}/`}>{gruppe.data.navn}</a>
+            </h2>
+            {gruppe.data.kort && <p>{gruppe.data.kort}</p>}
+            <p class="kontakt">
+              {gruppe.data.kontaktperson ? (
+                <>Kontaktperson: {gruppe.data.kontaktperson}</>
+              ) : (
+                <>Interessert i å bidra? Ta kontakt med FAU-leder.</>
+              )}
+            </p>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</Side>

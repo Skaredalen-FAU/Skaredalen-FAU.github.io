@@ -1,0 +1,23 @@
+---
+import { render } from 'astro:content';
+import Side from '../layouts/Side.astro';
+import { hentSide } from '../lib/innhold';
+
+const side = await hentSide('referater');
+const { Content } = await render(side);
+---
+
+<Side tittel={side.data.tittel} ingress={side.data.ingress}>
+  {
+    side.data.facebook && (
+      <p>
+        <a class="knapp" href={side.data.facebook} rel="noopener">
+          Gå til Facebook-gruppen
+        </a>
+      </p>
+    )
+  }
+  <div class="tekst">
+    <Content />
+  </div>
+</Side>

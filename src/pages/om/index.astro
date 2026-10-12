@@ -1,0 +1,29 @@
+---
+import Side from '../../layouts/Side.astro';
+
+const undersider = [
+  { href: '/om/styret/', tittel: 'Styret', tekst: 'Hvem som sitter i styret dette skoleåret' },
+  { href: '/om/vedtekter/', tittel: 'Vedtekter', tekst: 'Reglene FAU arbeider etter' },
+  { href: '/om/kontakt/', tittel: 'Kontakt oss', tekst: 'E-post og andre måter å nå oss på' },
+];
+---
+
+<Side
+  tittel="Om FAU"
+  ingress="FAU er foreldrenes arbeidsutvalg, og skal sikre at foreldre og foresatte har reell medvirkning i skolen."
+>
+  <ul class="kortliste">
+    {
+      undersider.map((underside) => (
+        <li>
+          <article class="kort">
+            <h2>
+              <a href={underside.href}>{underside.tittel}</a>
+            </h2>
+            <p class="dempet">{underside.tekst}</p>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</Side>

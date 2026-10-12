@@ -1,0 +1,20 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  tittel: string;
+  ingress?: string | null;
+  tilbake?: { href: string; tekst: string };
+}
+
+const { tittel, ingress, tilbake } = Astro.props;
+---
+
+<Base tittel={tittel} beskrivelse={ingress}>
+  <div class="ramme side">
+    {tilbake && <a class="tilbake" href={tilbake.href}>← {tilbake.tekst}</a>}
+    <h1>{tittel}</h1>
+    {ingress && <p class="ingress">{ingress}</p>}
+    <slot />
+  </div>
+</Base>
