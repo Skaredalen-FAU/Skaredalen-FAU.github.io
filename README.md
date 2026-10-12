@@ -31,12 +31,13 @@ Hver gruppe har sin egen fil. Øverst i filen, mellom de to linjene med `---`, s
 ---
 navn: Trygg skolevei
 kort: Én setning om hva gruppen jobber med.
-status: Pågår
+status: Aktiv
 kontaktperson:
 rekkefolge: 1
 ---
 ```
 
+- **status** er enten `Aktiv` eller `Avsluttet`. Avsluttede saker flyttes til en egen liste nederst på siden.
 - **kontaktperson** fylles bare inn når personen har sagt ja til å stå med navn. Står feltet tomt, viser siden «Interessert i å bidra? Ta kontakt med FAU-leder.»
 - Under den nederste `---` skriver du fritt. `## Overskrift` gir en overskrift, og linjer som starter med `- ` blir punktlister.
 

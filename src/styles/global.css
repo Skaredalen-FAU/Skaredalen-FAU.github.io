@@ -395,6 +395,23 @@ a:hover {
   font-weight: 600;
 }
 
+.merke.avsluttet {
+  background: #ebe7df;
+  color: var(--dempet);
+}
+
+.kort h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.kort h3 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
 .dempet {
   color: var(--dempet);
 }

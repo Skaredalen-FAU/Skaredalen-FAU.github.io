@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Side from '../../layouts/Side.astro';
-import { hentArbeidsgrupper } from '../../lib/innhold';
+import { erAvsluttet, hentArbeidsgrupper } from '../../lib/innhold';
 
 export async function getStaticPaths() {
   const grupper = await hentArbeidsgrupper();
@@ -10,6 +10,7 @@ export async function getStaticPaths() {
 
 const { gruppe } = Astro.props;
 const { Content } = await render(gruppe);
+const avsluttet = erAvsluttet(gruppe.data.status);
 ---
 
 <Side
@@ -17,21 +18,31 @@ const { Content } = await render(gruppe);
   ingress={gruppe.data.kort}
   tilbake={{ href: '/arbeidsgrupper/', tekst: 'Alle arbeidsgrupper' }}
 >
-  <div class="boks">
-    {
-      gruppe.data.kontaktperson ? (
+  <p><span class:list={['merke', { avsluttet }]}>{avsluttet ? 'Avsluttet' : 'Aktiv'}</span></p>
+
+  {
+    avsluttet ? (
+      <div class="boks">
         <p>
-          <strong>Kontaktperson:</strong> {gruppe.data.kontaktperson}
-          <br />
-          Vil du bidra eller har du innspill? <a href="/om/kontakt/">Ta kontakt via FAU</a>.
+          Denne saken er avsluttet. Har du spørsmål om arbeidet? <a href="/om/kontakt/">Ta kontakt med FAU</a>.
         </p>
-      ) : (
-        <p>
-          <strong>Interessert i å bidra?</strong> Ta kontakt med FAU-leder. <a href="/om/kontakt/">Kontakt oss</a>.
-        </p>
-      )
-    }
-  </div>
+      </div>
+    ) : (
+      <div class="boks">
+        {gruppe.data.kontaktperson ? (
+          <p>
+            <strong>Kontaktperson:</strong> {gruppe.data.kontaktperson}
+            <br />
+            Vil du bidra eller har du innspill? <a href="/om/kontakt/">Ta kontakt via FAU</a>.
+          </p>
+        ) : (
+          <p>
+            <strong>Interessert i å bidra?</strong> Ta kontakt med FAU-leder. <a href="/om/kontakt/">Kontakt oss</a>.
+          </p>
+        )}
+      </div>
+    )
+  }
 
   <div class="tekst">
     <Content />

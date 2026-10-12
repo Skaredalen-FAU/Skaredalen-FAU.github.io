@@ -15,6 +15,11 @@ export async function hentArbeidsgrupper() {
   );
 }
 
+// Alt som ikke er skrevet som "Avsluttet" regnes som aktivt, så en skrivefeil ikke stopper publiseringen.
+export function erAvsluttet(status?: string | null) {
+  return (status ?? '').trim().toLowerCase().startsWith('avslutt');
+}
+
 export function formaterDato(dato: Date) {
   return dato.toLocaleDateString('nb-NO', {
     weekday: 'long',

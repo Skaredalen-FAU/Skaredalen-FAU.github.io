@@ -1,8 +1,10 @@
 ---
 import Side from '../../layouts/Side.astro';
-import { hentArbeidsgrupper } from '../../lib/innhold';
+import { erAvsluttet, hentArbeidsgrupper } from '../../lib/innhold';
 
 const grupper = await hentArbeidsgrupper();
+const aktive = grupper.filter((gruppe) => !erAvsluttet(gruppe.data.status));
+const avsluttede = grupper.filter((gruppe) => erAvsluttet(gruppe.data.status));
 ---
 
 <Side
@@ -18,10 +20,10 @@ const grupper = await hentArbeidsgrupper();
 
   <ul class="kortliste">
     {
-      grupper.map((gruppe) => (
+      aktive.map((gruppe) => (
         <li>
           <article class="kort">
-            {gruppe.data.status && <span class="merke">{gruppe.data.status}</span>}
+            <span class="merke">Aktiv</span>
             <h2>
               <a href={`/arbeidsgrupper/${gruppe.id}/`}>{gruppe.data.navn}</a>
             </h2>
@@ -38,4 +40,25 @@ const grupper = await hentArbeidsgrupper();
       ))
     }
   </ul>
+
+  {
+    avsluttede.length > 0 && (
+      <>
+        <h2>Avsluttede saker</h2>
+        <ul class="kortliste">
+          {avsluttede.map((gruppe) => (
+            <li>
+              <article class="kort">
+                <span class="merke avsluttet">Avsluttet</span>
+                <h3>
+                  <a href={`/arbeidsgrupper/${gruppe.id}/`}>{gruppe.data.navn}</a>
+                </h3>
+                {gruppe.data.kort && <p>{gruppe.data.kort}</p>}
+              </article>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
 </Side>
