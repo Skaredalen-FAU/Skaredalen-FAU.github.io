@@ -38,7 +38,8 @@ rekkefolge: 1
 ```
 
 - **status** er enten `Aktiv` eller `Avsluttet`. Avsluttede saker flyttes til en egen liste nederst på siden.
-- **kontaktperson** fylles bare inn når personen har sagt ja til å stå med navn. Står feltet tomt, viser siden «Interessert i å bidra? Ta kontakt med FAU-leder.»
+- **kontaktperson** fylles bare inn når personen har sagt ja til å stå med navn. Står feltet tomt, viser siden «Interessert i å bidra? Ta kontakt med FAU.»
+- **lenke** brukes bare hvis gruppen har en egen side et annet sted på nettsiden. Da går kortet rett dit.
 - Under den nederste `---` skriver du fritt. `## Overskrift` gir en overskrift, og linjer som starter med `- ` blir punktlister.
 
 **Ny gruppe:** Gå til mappen `innhold/arbeidsgrupper`, trykk **Add file → Create new file**, gi den et navn som slutter på `.md` (små bokstaver, bindestrek i stedet for mellomrom, ikke æ/ø/å) og kopier oppsettet fra en av de andre.

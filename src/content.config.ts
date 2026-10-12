@@ -12,6 +12,7 @@ const arbeidsgrupper = defineCollection({
     kort: tekst,
     status: tekst,
     kontaktperson: tekst,
+    lenke: tekst,
     rekkefolge: z.number().nullable().optional(),
   }),
 });

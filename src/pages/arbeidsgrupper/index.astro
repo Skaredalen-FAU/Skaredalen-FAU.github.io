@@ -25,14 +25,14 @@ const avsluttede = grupper.filter((gruppe) => erAvsluttet(gruppe.data.status));
           <article class="kort">
             <span class="merke">Aktiv</span>
             <h2>
-              <a href={`/arbeidsgrupper/${gruppe.id}/`}>{gruppe.data.navn}</a>
+              <a href={gruppe.data.lenke ?? `/arbeidsgrupper/${gruppe.id}/`}>{gruppe.data.navn}</a>
             </h2>
             {gruppe.data.kort && <p>{gruppe.data.kort}</p>}
             <p class="kontakt">
               {gruppe.data.kontaktperson ? (
                 <>Kontaktperson: {gruppe.data.kontaktperson}</>
               ) : (
-                <>Interessert i å bidra? Ta kontakt med FAU-leder.</>
+                <>Interessert i å bidra? Ta kontakt med FAU.</>
               )}
             </p>
           </article>
@@ -51,7 +51,7 @@ const avsluttede = grupper.filter((gruppe) => erAvsluttet(gruppe.data.status));
               <article class="kort">
                 <span class="merke avsluttet">Avsluttet</span>
                 <h3>
-                  <a href={`/arbeidsgrupper/${gruppe.id}/`}>{gruppe.data.navn}</a>
+                  <a href={gruppe.data.lenke ?? `/arbeidsgrupper/${gruppe.id}/`}>{gruppe.data.navn}</a>
                 </h3>
                 {gruppe.data.kort && <p>{gruppe.data.kort}</p>}
               </article>

@@ -5,7 +5,8 @@ import { erAvsluttet, hentArbeidsgrupper } from '../../lib/innhold';
 
 export async function getStaticPaths() {
   const grupper = await hentArbeidsgrupper();
-  return grupper.map((gruppe) => ({ params: { id: gruppe.id }, props: { gruppe } }));
+  // Grupper med egen lenke har ingen gruppeside; kortet peker rett til lenken.
+  return grupper.filter((gruppe) => !gruppe.data.lenke).map((gruppe) => ({ params: { id: gruppe.id }, props: { gruppe } }));
 }
 
 const { gruppe } = Astro.props;
@@ -37,7 +38,7 @@ const avsluttet = erAvsluttet(gruppe.data.status);
           </p>
         ) : (
           <p>
-            <strong>Interessert i å bidra?</strong> Ta kontakt med FAU-leder. <a href="/om/kontakt/">Kontakt oss</a>.
+            <strong>Interessert i å bidra?</strong> <a href="/om/kontakt/">Ta kontakt med FAU</a>.
           </p>
         )}
       </div>
