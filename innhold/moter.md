@@ -14,4 +14,4 @@ Her kommer generell informasjon om FAU-møtene: hvor ofte vi møtes, hvor lenge 
 
 ## Melde inn en sak
 
-Har du en sak du ønsker at FAU skal ta opp? Send den til oss på e-post i god tid før møtet, eller ta kontakt med klassekontakten i din klasse.
+Har du en sak du ønsker at FAU skal ta opp? Send den til oss på e-post i god tid før møtet, eller ta kontakt med klassekontaktene/FAU-representantene i din klasse.
