@@ -2,7 +2,7 @@
 navn: Møbler til idrettsanlegget
 # Én setning om hva gruppen jobber med. Vises på kortet i oversikten.
 kort: Det slitte møblementet i idrettsanlegget skal byttes ut.
-# Skriv Aktiv eller Avsluttet.
+# Skriv Aktiv, Under oppstart eller Avsluttet.
 status: Aktiv
 # Fylles bare inn når personen har sagt ja til å stå med navn.
 kontaktperson:

@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Side from '../../layouts/Side.astro';
-import { erAvsluttet, hentArbeidsgrupper } from '../../lib/innhold';
+import { erAvsluttet, hentArbeidsgrupper, lesStatus } from '../../lib/innhold';
 
 export async function getStaticPaths() {
   const grupper = await hentArbeidsgrupper();
@@ -12,6 +12,7 @@ export async function getStaticPaths() {
 const { gruppe } = Astro.props;
 const { Content } = await render(gruppe);
 const avsluttet = erAvsluttet(gruppe.data.status);
+const status = lesStatus(gruppe.data.status);
 ---
 
 <Side
@@ -19,7 +20,7 @@ const avsluttet = erAvsluttet(gruppe.data.status);
   ingress={gruppe.data.kort}
   tilbake={{ href: '/arbeidsgrupper/', tekst: 'Alle arbeidsgrupper' }}
 >
-  <p><span class:list={['merke', { avsluttet }]}>{avsluttet ? 'Avsluttet' : 'Aktiv'}</span></p>
+  <p><span class:list={['merke', status.klasse]}>{status.navn}</span></p>
 
   {
     avsluttet ? (

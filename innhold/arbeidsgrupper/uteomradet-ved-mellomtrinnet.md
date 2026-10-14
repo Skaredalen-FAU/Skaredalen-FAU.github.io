@@ -2,7 +2,7 @@
 navn: Uteområdet ved mellomtrinnet
 # Én setning om hva gruppen jobber med. Vises på kortet i oversikten.
 kort: Bedre muligheter for lek og aktivitet i friminuttene på mellomtrinnet.
-# Skriv Aktiv eller Avsluttet.
+# Skriv Aktiv, Under oppstart eller Avsluttet.
 status: Aktiv
 # Fylles bare inn når personen har sagt ja til å stå med navn.
 kontaktperson:

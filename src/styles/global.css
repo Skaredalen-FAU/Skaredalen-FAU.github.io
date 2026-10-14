@@ -395,6 +395,11 @@ a:hover {
   font-weight: 600;
 }
 
+.merke.oppstart {
+  background: #fbebcf;
+  color: #7a4e0e;
+}
+
 .merke.avsluttet {
   background: #ebe7df;
   color: var(--dempet);

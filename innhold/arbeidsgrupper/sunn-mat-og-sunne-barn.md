@@ -2,8 +2,8 @@
 navn: Sunn mat og sunne barn
 # Én setning om hva gruppen jobber med. Vises på kortet i oversikten.
 kort: Ny arbeidsgruppe om mat og drikke på skolen og ved arrangementer.
-# Skriv Aktiv eller Avsluttet.
-status: Aktiv
+# Skriv Aktiv, Under oppstart eller Avsluttet.
+status: Under oppstart
 # Fylles bare inn når personen har sagt ja til å stå med navn.
 kontaktperson:
 rekkefolge: 6
