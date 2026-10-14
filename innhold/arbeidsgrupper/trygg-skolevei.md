@@ -1,7 +1,7 @@
 ---
 navn: Trygg skolevei
 # Én setning om hva gruppen jobber med. Vises på kortet i oversikten.
-kort:
+kort: Kartlegger steder på skoleveien som oppleves som trafikkfarlige.
 # Skriv Aktiv eller Avsluttet.
 status: Aktiv
 # Fylles bare inn når personen har sagt ja til å stå med navn.
