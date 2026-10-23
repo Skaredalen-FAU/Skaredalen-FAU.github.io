@@ -21,10 +21,10 @@ Alt innhold ligger i mappen [`innhold`](innhold). Du trenger ikke installere noe
 | Styret | `innhold/styret.md` |
 | Vedtekter | `innhold/vedtekter.md` |
 | E-post, telefon og Facebook-lenke | `innhold/kontakt.md` |
-**Under oppføring:** Sider som ikke er ferdige har linjen `under_arbeid: true` øverst i filen. Den viser en gul melding om at mer informasjon kommer. Fjern linjen når siden er ferdig.
-
 | Teksten på forsiden | `innhold/forside.md` |
 | Boksen «Vi ønsker innspill» på forsiden | `innhold/innspill.md` (skjules med `vis: false`) |
+
+**Under oppføring:** Sider som ikke er ferdige har linjen `under_arbeid: true` øverst i filen. Den viser en gul melding om at mer informasjon kommer. Fjern linjen når siden er ferdig.
 
 ## Arbeidsgrupper
 
