@@ -8,7 +8,12 @@ const { Content } = await render(side);
 const { epost, telefon_leder, facebook } = side.data;
 ---
 
-<Side tittel={side.data.tittel} ingress={side.data.ingress} tilbake={{ href: '/om/', tekst: 'Om FAU' }}>
+<Side
+  tittel={side.data.tittel}
+  ingress={side.data.ingress}
+  tilbake={{ href: '/om/', tekst: 'Om FAU' }}
+  underArbeid={side.data.under_arbeid}
+>
   <div class="boks">
     <p>
       <strong>E-post:</strong>{' '}

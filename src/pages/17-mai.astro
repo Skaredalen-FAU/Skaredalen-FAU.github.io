@@ -7,7 +7,7 @@ const side = await hentSide('17-mai');
 const { Content } = await render(side);
 ---
 
-<Side tittel={side.data.tittel} ingress={side.data.ingress}>
+<Side tittel={side.data.tittel} ingress={side.data.ingress} underArbeid={side.data.under_arbeid}>
   <div class="tekst">
     <Content />
   </div>

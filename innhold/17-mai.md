@@ -1,6 +1,8 @@
 ---
 tittel: 17. mai
 ingress: Informasjon om 17. mai-arrangementet på skolen.
+# Viser en melding om at siden er under oppføring. Fjern linjen eller sett false når siden er ferdig.
+under_arbeid: true
 ---
 
 ## Hvem har ansvaret?

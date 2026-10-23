@@ -1,6 +1,8 @@
 ---
 tittel: Årshjul
 ingress: Faste aktiviteter og frister gjennom skoleåret. Oversikten oppdateres underveis.
+# Viser en melding om at siden er under oppføring. Fjern linjen eller sett false når siden er ferdig.
+under_arbeid: true
 ---
 
 ## August

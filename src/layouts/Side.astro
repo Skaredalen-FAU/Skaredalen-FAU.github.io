@@ -5,9 +5,10 @@ interface Props {
   tittel: string;
   ingress?: string | null;
   tilbake?: { href: string; tekst: string };
+  underArbeid?: boolean | null;
 }
 
-const { tittel, ingress, tilbake } = Astro.props;
+const { tittel, ingress, tilbake, underArbeid } = Astro.props;
 ---
 
 <Base tittel={tittel} beskrivelse={ingress}>
@@ -15,6 +16,13 @@ const { tittel, ingress, tilbake } = Astro.props;
     {tilbake && <a class="tilbake" href={tilbake.href}>← {tilbake.tekst}</a>}
     <h1>{tittel}</h1>
     {ingress && <p class="ingress">{ingress}</p>}
+    {
+      underArbeid && (
+        <p class="under-arbeid">
+          <strong>Under oppføring:</strong> Denne siden er ikke ferdig. Mer informasjon kommer.
+        </p>
+      )
+    }
     <slot />
   </div>
 </Base>
