@@ -32,6 +32,8 @@ const sider = defineCollection({
     facebook: tekst,
     epost: tekst,
     telefon_leder: tekst,
+    // innspill
+    vis: z.boolean().nullable().optional(),
     // smarttelefonfri skole
     pdf: tekst,
     // styret

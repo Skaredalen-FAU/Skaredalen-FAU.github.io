@@ -7,4 +7,3 @@ telefon_leder:
 facebook: https://www.facebook.com/groups/1282915713064344
 ---
 
-Henvendelser som gjelder enkeltelever eller enkeltsaker skal gå til kontaktlærer eller skolens ledelse, ikke til FAU.

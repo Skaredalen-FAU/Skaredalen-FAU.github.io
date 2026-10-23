@@ -5,7 +5,10 @@ import { hentSide } from '../lib/innhold';
 
 const forside = await hentSide('forside');
 const { Content } = await render(forside);
-const { facebook } = (await hentSide('kontakt')).data;
+const { facebook, epost } = (await hentSide('kontakt')).data;
+const innspill = await hentSide('innspill');
+const { Content: InnspillTekst } = await render(innspill);
+const innspillLenke = epost && `mailto:${epost}?subject=${encodeURIComponent('Innspill til FAU-møtet')}`;
 
 const snarveier = [
   { href: '/arbeidsgrupper/', tittel: 'Arbeidsgrupper', tekst: 'Se hva vi jobber med, og hvem du kan kontakte' },
@@ -39,6 +42,23 @@ const snarveier = [
               Gå til Facebook-gruppen
             </a>
           </p>
+        </section>
+      )
+    }
+
+    {
+      innspill.data.vis && (
+        <section class="boks">
+          <h2>{innspill.data.tittel}</h2>
+          <InnspillTekst />
+          {innspillLenke && (
+            <p>
+              <a class="knapp" href={innspillLenke}>
+                Send innspill på e-post
+              </a>
+            </p>
+          )}
+          {facebook && <p>Du kan også gi innspill i Facebook-gruppen.</p>}
         </section>
       )
     }

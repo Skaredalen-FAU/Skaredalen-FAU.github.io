@@ -22,6 +22,7 @@ Alt innhold ligger i mappen [`innhold`](innhold). Du trenger ikke installere noe
 | Vedtekter | `innhold/vedtekter.md` |
 | E-post, telefon og Facebook-lenke | `innhold/kontakt.md` |
 | Teksten på forsiden | `innhold/forside.md` |
+| Boksen «Vi ønsker innspill» på forsiden | `innhold/innspill.md` (skjules med `vis: false`) |
 
 ## Arbeidsgrupper
 
