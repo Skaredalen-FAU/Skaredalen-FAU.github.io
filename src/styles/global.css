@@ -348,6 +348,16 @@ a:hover {
   border-radius: 0.9rem;
 }
 
+.kort.ny-sak {
+  background: transparent;
+  border: 2px dashed var(--gronn);
+}
+
+.kort.ny-sak .merke {
+  background: var(--gronn);
+  color: var(--papir);
+}
+
 .kort:has(a):hover {
   border-color: var(--gronn);
 }
