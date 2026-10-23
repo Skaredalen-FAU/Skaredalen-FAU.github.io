@@ -28,7 +28,7 @@ const sider = defineCollection({
     neste_mote: z.date().nullable().optional(),
     klokkeslett: tekst,
     sted: tekst,
-    // referater og kontakt
+    // kontakt
     facebook: tekst,
     epost: tekst,
     telefon_leder: tekst,

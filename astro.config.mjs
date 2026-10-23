@@ -1,5 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://skaredalen-fau.github.io',
+  site: 'https://skaredalenfau.no',
+  // Referatsiden er slått sammen med møtesiden.
+  redirects: { '/referater': '/moter/' },
 });

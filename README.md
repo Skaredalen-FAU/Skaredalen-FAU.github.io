@@ -1,6 +1,6 @@
 # Skåredalen FAU – nettside
 
-Nettsiden ligger på https://skaredalen-fau.github.io og oppdateres automatisk noen minutter etter at en endring er lagret her.
+Nettsiden ligger på https://skaredalenfau.no og oppdateres automatisk noen minutter etter at en endring er lagret her.
 
 ## Slik endrer du innhold
 

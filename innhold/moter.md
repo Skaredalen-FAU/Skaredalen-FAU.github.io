@@ -1,11 +1,11 @@
 ---
 tittel: Møter
-ingress: FAU møtes jevnlig gjennom skoleåret. Møtene er åpne for alle foreldre og foresatte.
+ingress: FAU møtes jevnlig gjennom skoleåret. Møteinnkallinger og referater deles i Facebook-gruppen vår.
 # Skriv datoen slik: 2026-11-24. La feltet stå tomt hvis datoen ikke er bestemt.
 neste_mote: 2026-11-05
-# Klokkeslettet må stå i anførselstegn.
-klokkeslett: "19.30"
-sted: Skåredalen skole. Inngang ved personalinngangen, døren nærmest parkeringen.
+# Klokkeslett og sted er valgfrie. Klokkeslettet må stå i anførselstegn, f.eks. "19.30".
+klokkeslett:
+sted:
 ---
 
 ## Om møtene

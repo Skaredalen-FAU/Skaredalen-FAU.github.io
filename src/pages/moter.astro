@@ -7,6 +7,7 @@ const side = await hentSide('moter');
 const { Content } = await render(side);
 const { neste_mote, klokkeslett, sted } = side.data;
 const detaljer = [klokkeslett && `Kl. ${klokkeslett}`, sted].filter(Boolean).join(' · ');
+const { facebook } = (await hentSide('kontakt')).data;
 ---
 
 <Side tittel={side.data.tittel} ingress={side.data.ingress}>
@@ -23,6 +24,24 @@ const detaljer = [klokkeslett && `Kl. ${klokkeslett}`, sted].filter(Boolean).joi
       )
     }
   </section>
+
+  {
+    facebook && (
+      <section class="boks">
+        <h2>Møteinnkalling og referater</h2>
+        <p>
+          Møteinnkallinger med tid og sted, og referater fra møtene, deles i Facebook-gruppen vår. Gruppen er lukket og er
+          for foreldre og foresatte ved skolen. Er du ikke medlem ennå, kan du be om å bli med via lenken. Har du ikke
+          Facebook? Ta kontakt med oss, så sender vi deg det du trenger.
+        </p>
+        <p>
+          <a class="knapp" href={facebook} rel="noopener">
+            Gå til Facebook-gruppen
+          </a>
+        </p>
+      </section>
+    )
+  }
 
   <div class="tekst">
     <Content />
