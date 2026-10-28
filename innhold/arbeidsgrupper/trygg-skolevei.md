@@ -2,7 +2,7 @@
 navn: Trygg skolevei
 # Én setning om hva gruppen jobber med. Vises på kortet i oversikten.
 kort: Kartlegger steder på skoleveien som oppleves som trafikkfarlige.
-# Skriv Aktiv, Under oppstart eller Avsluttet.
+# Skriv Aktiv, Under oppstart, Ferdig eller Avsluttet.
 status: Under oppstart
 # Fylles bare inn når personen har sagt ja til å stå med navn.
 kontaktperson:

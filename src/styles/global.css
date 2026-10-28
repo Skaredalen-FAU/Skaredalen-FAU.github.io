@@ -442,6 +442,43 @@ a:hover {
   border-radius: inherit;
 }
 
+.logoer {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+}
+
+.logoer img {
+  display: block;
+  height: 3rem;
+  width: auto;
+}
+
+.galleri {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.75rem;
+}
+
+.galleri a {
+  display: block;
+}
+
+.galleri img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 0.6rem;
+}
+
 .dempet {
   color: var(--dempet);
 }

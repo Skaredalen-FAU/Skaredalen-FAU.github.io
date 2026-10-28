@@ -55,12 +55,12 @@ const avsluttede = grupper.filter((gruppe) => erAvsluttet(gruppe.data.status));
   {
     avsluttede.length > 0 && (
       <>
-        <h2>Avsluttede saker</h2>
+        <h2>Ferdige og avsluttede saker</h2>
         <ul class="kortliste">
           {avsluttede.map((gruppe) => (
             <li>
               <article class="kort">
-                <span class="merke avsluttet">Avsluttet</span>
+                <span class="merke avsluttet">{lesStatus(gruppe.data.status).navn}</span>
                 <h3>
                   <a href={gruppe.data.lenke ?? `/arbeidsgrupper/${gruppe.id}/`}>{gruppe.data.navn}</a>
                 </h3>

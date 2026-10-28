@@ -19,6 +19,7 @@ export async function hentArbeidsgrupper() {
 export function lesStatus(status?: string | null) {
   const tekst = (status ?? '').trim().toLowerCase();
   if (tekst.startsWith('avslutt')) return { navn: 'Avsluttet', klasse: 'avsluttet' };
+  if (tekst.startsWith('ferdig')) return { navn: 'Ferdig', klasse: 'avsluttet' };
   if (tekst.includes('oppstart')) return { navn: 'Under oppstart', klasse: 'oppstart' };
   return { navn: 'Aktiv', klasse: '' };
 }

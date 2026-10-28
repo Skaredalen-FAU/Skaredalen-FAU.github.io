@@ -2,3 +2,5 @@ node_modules/
 dist/
 .astro/
 .claude/
+# Originalbilder (store filer med metadata). Nettversjonene ligger i public/bilder.
+Bilder/

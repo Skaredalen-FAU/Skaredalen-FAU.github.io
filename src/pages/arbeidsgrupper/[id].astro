@@ -26,7 +26,8 @@ const status = lesStatus(gruppe.data.status);
     avsluttet ? (
       <div class="boks">
         <p>
-          Denne saken er avsluttet. Har du spørsmål om arbeidet? <a href="/om/kontakt/">Ta kontakt med FAU</a>.
+          {status.navn === 'Ferdig' ? 'Dette prosjektet er gjennomført.' : 'Denne saken er avsluttet.'} Har du spørsmål om
+          arbeidet? <a href="/om/kontakt/">Ta kontakt med FAU</a>.
         </p>
       </div>
     ) : (
@@ -49,4 +50,33 @@ const status = lesStatus(gruppe.data.status);
   <div class="tekst">
     <Content />
   </div>
+
+  {
+    gruppe.data.logoer && gruppe.data.logoer.length > 0 && (
+      <ul class="logoer">
+        {gruppe.data.logoer.map((logo) => (
+          <li>
+            <img src={logo.fil} alt={logo.navn} loading="lazy" />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    gruppe.data.bilder && gruppe.data.bilder.length > 0 && (
+      <>
+        <h2>Bilder</h2>
+        <ul class="galleri">
+          {gruppe.data.bilder.map((bilde) => (
+            <li>
+              <a href={bilde.fil}>
+                <img src={bilde.fil} alt={bilde.tekst ?? ''} loading="lazy" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
 </Side>

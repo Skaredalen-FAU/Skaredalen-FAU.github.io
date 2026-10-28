@@ -13,6 +13,14 @@ const arbeidsgrupper = defineCollection({
     status: tekst,
     kontaktperson: tekst,
     lenke: tekst,
+    logoer: z
+      .array(z.object({ fil: z.string(), navn: z.string() }))
+      .nullable()
+      .optional(),
+    bilder: z
+      .array(z.object({ fil: z.string(), tekst: tekst }))
+      .nullable()
+      .optional(),
     rekkefolge: z.number().nullable().optional(),
   }),
 });
