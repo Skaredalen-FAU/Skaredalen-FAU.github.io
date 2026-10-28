@@ -27,6 +27,6 @@ Det svært slitte møblementet i idrettsanlegget er nå byttet ut. Møblene bruk
 
 ## Takk til alle som bidro
 
-FAU startet prosjektet sammen med skolen. Sparebanken Norge og Skåredalen Velforening har, sammen med Skåredalen skole og Haugesund kommune, bidratt til at prosjektet ble realisert. Sparebanken Norge støttet prosjektet med 50 000 kroner, og Skåredalen Velforening med 40 000 kroner.
+Prosjektet ble startet av FAU og Skåredalen skole, og er realisert med støtte fra Sparebanken Norge (50 000 kroner) og Skåredalen Velforening (40 000 kroner), i samarbeid med Haugesund kommune.
 
 Møblementet ble byttet ut i samarbeid med Senab Eikeland i Haugesund og kommunens gjenbruksavdeling.
