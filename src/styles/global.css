@@ -295,6 +295,16 @@ a:hover {
   border-radius: 0.5rem;
 }
 
+.oppsummering {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1.5rem;
+  background: var(--papir);
+  border: 1px solid var(--kant);
+  border-radius: 0.9rem;
+}
+
 .tilbake {
   display: inline-block;
   margin-bottom: 1rem;

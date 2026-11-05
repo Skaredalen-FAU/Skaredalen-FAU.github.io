@@ -32,6 +32,7 @@ const sider = defineCollection({
     ingress: tekst,
     // forside
     bilde: tekst,
+    bilde_tekst: tekst,
     // moter
     neste_mote: z.date().nullable().optional(),
     klokkeslett: tekst,
