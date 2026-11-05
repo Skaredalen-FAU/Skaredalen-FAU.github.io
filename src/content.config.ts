@@ -36,6 +36,8 @@ const sider = defineCollection({
     neste_mote: z.date().nullable().optional(),
     klokkeslett: tekst,
     sted: tekst,
+    oppmote_skjema: tekst,
+    oppmote_apner: tekst,
     // kontakt
     facebook: tekst,
     epost: tekst,

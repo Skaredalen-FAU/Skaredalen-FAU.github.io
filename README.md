@@ -14,7 +14,7 @@ Alt innhold ligger i mappen [`innhold`](innhold). Du trenger ikke installere noe
 | Vil du endre | Åpne filen |
 |---|---|
 | En arbeidsgruppe | `innhold/arbeidsgrupper/<gruppenavn>.md` |
-| Neste møte og møteinfo | `innhold/moter.md` |
+| Neste møte, møteinfo og oppmøteknappen | `innhold/moter.md` |
 | Årshjulet | `innhold/aarshjul.md` |
 | 17. mai | `innhold/17-mai.md` |
 | Smarttelefonfri skole (veilederen) | `innhold/smarttelefonfri-skole.md` |

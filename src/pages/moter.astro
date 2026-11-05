@@ -5,7 +5,8 @@ import { formaterDato, hentSide } from '../lib/innhold';
 
 const side = await hentSide('moter');
 const { Content } = await render(side);
-const { neste_mote, klokkeslett, sted } = side.data;
+const { neste_mote, klokkeslett, sted, oppmote_skjema, oppmote_apner } = side.data;
+const apnerKl = oppmote_apner ?? '19:00';
 const detaljer = [klokkeslett && `Kl. ${klokkeslett}`, sted].filter(Boolean).join(' · ');
 const { facebook } = (await hentSide('kontakt')).data;
 ---
@@ -18,6 +19,14 @@ const { facebook } = (await hentSide('kontakt')).data;
         <div data-dato={neste_mote.toISOString().slice(0, 10)}>
           <p class="dato">{formaterDato(neste_mote)}</p>
           {detaljer && <p class="detaljer">{detaljer}</p>}
+          {oppmote_skjema && (
+            <p class="oppmote" hidden data-skjema={oppmote_skjema} data-apner={apnerKl}>
+              <a class="knapp knapp-oppmote" aria-disabled="true">
+                Registrer oppmøte
+              </a>
+              <span class="oppmote-info">Åpner kl. {apnerKl.replace(':', '.')}.</span>
+            </p>
+          )}
         </div>
       ) : (
         <p class="dato">Dato kommer</p>
@@ -55,5 +64,31 @@ const { facebook } = (await hentSide('kontakt')).data;
     if (!boks) return;
     const slutt = new Date(boks.dataset.dato + 'T23:59:59');
     if (slutt < new Date()) boks.innerHTML = '<p class="dato">Dato kommer</p>';
+
+    // Oppmøteknappen vises fra møtedagen og åpnes på valgt klokkeslett, uansett tidssonen på enheten.
+    const oppmote = boks.querySelector('.oppmote');
+    if (!oppmote) return;
+    const knapp = oppmote.querySelector('a');
+    const info = oppmote.querySelector('.oppmote-info');
+    const oppdater = () => {
+      const naa = new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Oslo' });
+      const dato = boks.dataset.dato;
+      if (naa.slice(0, 10) !== dato) {
+        oppmote.hidden = true;
+        return false;
+      }
+      oppmote.hidden = false;
+      if (naa.slice(11, 16) < oppmote.dataset.apner) return false;
+      knapp.href = oppmote.dataset.skjema;
+      knapp.rel = 'noopener';
+      knapp.removeAttribute('aria-disabled');
+      info.hidden = true;
+      return true;
+    };
+    if (!oppdater()) {
+      const tidtaker = setInterval(() => {
+        if (oppdater()) clearInterval(tidtaker);
+      }, 15000);
+    }
   })();
 </script>
