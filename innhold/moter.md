@@ -6,11 +6,11 @@ neste_mote: 2026-11-05
 # Klokkeslett og sted er valgfrie. Klokkeslettet må stå i anførselstegn, f.eks. "19.30".
 klokkeslett:
 sted:
-# Lenke til oppmøteskjemaet. Knappen vises på møtedagen og åpnes på klokkeslettet under (norsk tid).
+# Lenke til oppmøteskjemaet. Knappen er skjult og dukker opp på møtedagen på klokkeslettet under (norsk tid).
 # La feltet stå tomt for å skjule knappen.
 oppmote_skjema: https://docs.google.com/forms/d/e/1FAIpQLSeFUiAzGNaX9ooiPxqNj7l0Z52phgpH-wbzmJVGfKNRW1_zpw/viewform
 # Klokkeslettet må stå i anførselstegn og skrives slik: "19:00".
-oppmote_apner: "19:00"
+oppmote_apner: "19:20"
 ---
 
 ## Om møtene

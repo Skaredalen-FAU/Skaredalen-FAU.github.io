@@ -521,15 +521,7 @@ a:hover {
 }
 
 .oppmote {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 1rem;
   margin: 1.25rem 0 0;
-}
-
-.oppmote[hidden] {
-  display: none;
 }
 
 .knapp-oppmote,
@@ -541,21 +533,6 @@ a:hover {
 
 .knapp-oppmote:hover {
   background: #f2b65c;
-}
-
-.knapp-oppmote[aria-disabled='true'],
-.knapp-oppmote[aria-disabled='true']:hover {
-  background: rgb(255 255 255 / 0.2);
-  color: var(--papir);
-  cursor: not-allowed;
-}
-
-.oppmote-info {
-  font-size: 0.95rem;
-}
-
-.oppmote-info[hidden] {
-  display: none;
 }
 
 /* Årshjul: tidslinje bygget på flate h2 + ul fra Markdown */
