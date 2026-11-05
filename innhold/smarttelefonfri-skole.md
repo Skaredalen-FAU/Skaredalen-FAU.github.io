@@ -4,9 +4,6 @@ ingress: FAU har laget en felles veileder for skjermbruk ved Skåredalen skole. 
 # PDF-en ligger i mappen public/dokumenter. Bytt filnavnet her hvis det kommer en ny versjon.
 # Står feltet tomt, vises ingen nedlastingsknapp.
 pdf: /dokumenter/veileder-skjermbruk.pdf
-# Oppsummeringsbildet øverst på siden. bilde_tekst leses opp for dem som bruker skjermleser.
-bilde: /bilder/skjermbruk-oppsummering.webp
-bilde_tekst: "FAU Skåredalen skole anbefaler: Vent med smarttelefon til tidligst 8. trinn. Overhold aldersgrensene for sosiale medier som et minimum. Bruk PEGI som minimumsalder, og aktivt vurder spillets aldersgrense. Snakk sammen på det første foreldremøtet i regi av skolen, hvert skoleår, for å avklare hvem som vil holde igjen med smarttelefon, de enkelte sosiale mediene og de ulike dataspillene."
 ---
 
 FAU oppfordrer alle klasser til å bruke veilederen for å forebygge utfordringer senere i skoleløpet. Den er ment som utgangspunkt for refleksjon og diskusjon på foreldremøter, og bygger på Helsedirektoratets skjermråd og tilsvarende veiledere ved andre norske barneskoler.

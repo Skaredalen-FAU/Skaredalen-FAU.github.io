@@ -9,13 +9,6 @@ const { Content } = await render(side);
 
 <Side tittel={side.data.tittel} ingress={side.data.ingress}>
   {
-    side.data.bilde && (
-      <a href={side.data.bilde}>
-        <img class="oppsummering" src={side.data.bilde} alt={side.data.bilde_tekst ?? ''} width="1271" height="709" />
-      </a>
-    )
-  }
-  {
     side.data.pdf && (
       <p>
         <a class="knapp" href={side.data.pdf}>
