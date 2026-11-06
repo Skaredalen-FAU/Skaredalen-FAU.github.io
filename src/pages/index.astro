@@ -67,6 +67,15 @@ const snarveier = [
                     <a href={sak.data.lenke}>{sak.data.lenketekst ?? 'Les mer'} →</a>
                   </p>
                 )}
+                {sak.data.logoer && sak.data.logoer.length > 0 && (
+                  <ul class="logoer">
+                    {sak.data.logoer.map((logo) => (
+                      <li>
+                        <img src={logo.fil} alt={logo.navn} loading="lazy" />
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </article>
           ))}

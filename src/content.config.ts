@@ -66,6 +66,10 @@ const forsidesaker = defineCollection({
     bilde_tekst: tekst,
     lenke: tekst,
     lenketekst: tekst,
+    logoer: z
+      .array(z.object({ fil: z.string(), navn: z.string() }))
+      .nullable()
+      .optional(),
     vis: z.boolean().nullable().optional(),
   }),
 });

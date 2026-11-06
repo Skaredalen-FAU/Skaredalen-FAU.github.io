@@ -6,6 +6,10 @@ bilde: /bilder/mobler/mobler-2.webp
 bilde_tekst: Langt ståbord med barkrakker i gangen i idrettsanlegget
 lenke: /arbeidsgrupper/mobler-til-idrettsanlegget/
 lenketekst: Se flere bilder og les om prosjektet
+# Logoer vises under lenken. Valgfritt.
+logoer:
+  - fil: /bilder/mobler/sparebanken-norge.png
+    navn: Sparebanken Norge
 # Sett til false for å ta saken bort fra forsiden.
 vis: true
 ---

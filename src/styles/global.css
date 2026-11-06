@@ -202,6 +202,16 @@ a:hover {
   max-width: 76rem;
   height: auto;
   margin: 0 auto;
+  /* Beskjærer himmel og gress, så skolebygget står igjen i midten */
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+  object-position: 50% 58%;
+}
+
+@media (max-width: 40rem) {
+  .hero img {
+    aspect-ratio: 2.2 / 1;
+  }
 }
 
 .hero-tekst {
@@ -303,6 +313,14 @@ a:hover {
 
 .forsidesak-tekst p:last-child {
   margin-bottom: 0;
+}
+
+.forsidesak-tekst .logoer {
+  margin: 1rem 0 0;
+}
+
+.forsidesak-tekst .logoer img {
+  height: 2.5rem;
 }
 
 .forsidesak-dato {
