@@ -290,7 +290,8 @@ a:hover {
   margin-top: 1rem;
 }
 
-.forsidesak img {
+/* Bare hovedbildet i saken, ikke logoene inne i teksten */
+.forsidesak > img {
   display: block;
   width: 100%;
   height: 100%;
@@ -320,7 +321,7 @@ a:hover {
 }
 
 .forsidesak-tekst .logoer img {
-  height: 2.5rem;
+  height: 2rem;
 }
 
 .forsidesak-dato {
@@ -333,7 +334,7 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .forsidesak img {
+  .forsidesak > img {
     height: auto;
     min-height: 0;
     aspect-ratio: 4 / 3;
