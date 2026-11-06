@@ -2,10 +2,12 @@
 tittel: Møter
 ingress: FAU møtes jevnlig gjennom skoleåret. Møteinnkallinger og referater deles i Facebook-gruppen vår.
 # Skriv datoen slik: 2026-11-24. La feltet stå tomt hvis datoen ikke er bestemt.
-neste_mote: 2026-11-05
+neste_mote: 2026-12-02
 # Klokkeslett og sted er valgfrie. Klokkeslettet må stå i anførselstegn, f.eks. "19.30".
-klokkeslett:
+klokkeslett: "19.30"
 sted:
+# Hvem møtet er for. Valgfritt.
+deltakere: Møtet er for styremedlemmer og representanter fra arbeidsgruppene.
 # Lenke til oppmøteskjemaet. Knappen er skjult og dukker opp på møtedagen på klokkeslettet under (norsk tid).
 # La feltet stå tomt for å skjule knappen.
 oppmote_skjema: https://docs.google.com/forms/d/e/1FAIpQLSeFUiAzGNaX9ooiPxqNj7l0Z52phgpH-wbzmJVGfKNRW1_zpw/viewform

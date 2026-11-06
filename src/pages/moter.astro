@@ -5,7 +5,7 @@ import { formaterDato, hentSide } from '../lib/innhold';
 
 const side = await hentSide('moter');
 const { Content } = await render(side);
-const { neste_mote, klokkeslett, sted, oppmote_skjema, oppmote_apner } = side.data;
+const { neste_mote, klokkeslett, sted, deltakere, oppmote_skjema, oppmote_apner } = side.data;
 const apnerKl = oppmote_apner ?? '19:20';
 const detaljer = [klokkeslett && `Kl. ${klokkeslett}`, sted].filter(Boolean).join(' · ');
 const { facebook } = (await hentSide('kontakt')).data;
@@ -19,6 +19,7 @@ const { facebook } = (await hentSide('kontakt')).data;
         <div data-dato={neste_mote.toISOString().slice(0, 10)}>
           <p class="dato">{formaterDato(neste_mote)}</p>
           {detaljer && <p class="detaljer">{detaljer}</p>}
+          {deltakere && <p class="detaljer">{deltakere}</p>}
           {oppmote_skjema && (
             <p class="oppmote" hidden data-skjema={oppmote_skjema} data-apner={apnerKl}>
               <a class="knapp knapp-oppmote" rel="noopener">
