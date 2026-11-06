@@ -15,6 +15,12 @@ export async function hentArbeidsgrupper() {
   );
 }
 
+// Sakene på forsiden: de tre nyeste som ikke er skjult.
+export async function hentForsidesaker() {
+  const saker = await getCollection('forsidesaker', (sak) => sak.data.vis !== false);
+  return saker.sort((a, b) => b.data.dato.getTime() - a.data.dato.getTime()).slice(0, 3);
+}
+
 // Alt som ikke gjenkjennes regnes som aktivt, så en skrivefeil ikke stopper publiseringen.
 export function lesStatus(status?: string | null) {
   const tekst = (status ?? '').trim().toLowerCase();

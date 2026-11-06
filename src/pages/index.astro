@@ -1,11 +1,14 @@
 ---
 import { render } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { hentSide } from '../lib/innhold';
+import { formaterDato, hentForsidesaker, hentSide } from '../lib/innhold';
 
 const forside = await hentSide('forside');
 const { Content } = await render(forside);
 const { facebook, epost } = (await hentSide('kontakt')).data;
+const saker = await Promise.all(
+  (await hentForsidesaker()).map(async (sak) => ({ sak, Tekst: (await render(sak)).Content })),
+);
 const innspill = await hentSide('innspill');
 const { Content: InnspillTekst } = await render(innspill);
 const innspillLenke = epost && `mailto:${epost}?subject=${encodeURIComponent('Innspill til FAU-møtet')}`;
@@ -42,6 +45,31 @@ const snarveier = [
               Gå til Facebook-gruppen
             </a>
           </p>
+        </section>
+      )
+    }
+
+    {
+      saker.length > 0 && (
+        <section class="forsidesaker" aria-labelledby="nytt-fra-fau">
+          <h2 id="nytt-fra-fau">Nytt fra FAU</h2>
+          {saker.map(({ sak, Tekst }) => (
+            <article class="forsidesak">
+              {sak.data.bilde && (
+                <img src={sak.data.bilde} alt={sak.data.bilde_tekst ?? ''} loading="lazy" />
+              )}
+              <div class="forsidesak-tekst">
+                <p class="forsidesak-dato">{formaterDato(sak.data.dato).replace(/^\S+ /, '')}</p>
+                <h3>{sak.data.tittel}</h3>
+                <Tekst />
+                {sak.data.lenke && (
+                  <p>
+                    <a href={sak.data.lenke}>{sak.data.lenketekst ?? 'Les mer'} →</a>
+                  </p>
+                )}
+              </div>
+            </article>
+          ))}
         </section>
       )
     }

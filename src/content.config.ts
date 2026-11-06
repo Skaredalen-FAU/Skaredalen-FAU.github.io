@@ -57,4 +57,17 @@ const sider = defineCollection({
   }),
 });
 
-export const collections = { arbeidsgrupper, sider };
+const forsidesaker = defineCollection({
+  loader: glob({ pattern: '*.md', base: './innhold/forsidesaker' }),
+  schema: z.object({
+    tittel: z.string(),
+    dato: z.date(),
+    bilde: tekst,
+    bilde_tekst: tekst,
+    lenke: tekst,
+    lenketekst: tekst,
+    vis: z.boolean().nullable().optional(),
+  }),
+});
+
+export const collections = { arbeidsgrupper, sider, forsidesaker };

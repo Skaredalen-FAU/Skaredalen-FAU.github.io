@@ -22,6 +22,7 @@ Alt innhold ligger i mappen [`innhold`](innhold). Du trenger ikke installere noe
 | Vedtekter | `innhold/vedtekter.md` |
 | E-post, telefon og Facebook-lenke | `innhold/kontakt.md` |
 | Teksten på forsiden | `innhold/forside.md` |
+| Saker under «Nytt fra FAU» på forsiden | `innhold/forsidesaker/` (én fil per sak, de tre nyeste vises, skjules med `vis: false`) |
 | Boksen «Vi ønsker innspill» på forsiden | `innhold/innspill.md` (skjules med `vis: false`) |
 
 **Under oppføring:** Sider som ikke er ferdige har linjen `under_arbeid: true` øverst i filen. Den viser en gul melding om at mer informasjon kommer. Fjern linjen når siden er ferdig.
