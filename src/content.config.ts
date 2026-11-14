@@ -39,6 +39,18 @@ const sider = defineCollection({
     deltakere: tekst,
     oppmote_skjema: tekst,
     oppmote_apner: tekst,
+    andre_moter: z
+      .array(
+        z.object({
+          tittel: z.string(),
+          dato: z.date(),
+          klokkeslett: tekst,
+          sted: tekst,
+          tekst: tekst,
+        }),
+      )
+      .nullable()
+      .optional(),
     // kontakt
     facebook: tekst,
     epost: tekst,

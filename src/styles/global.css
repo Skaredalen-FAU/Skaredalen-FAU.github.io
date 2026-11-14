@@ -617,6 +617,24 @@ a:hover {
   background: #f2b65c;
 }
 
+.andre-moter > h2 {
+  margin-top: 0;
+}
+
+.andre-moter .boks h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem;
+}
+
+.andre-mote-dato::first-letter {
+  text-transform: uppercase;
+}
+
+.andre-mote-dato {
+  font-weight: 600;
+  color: var(--gronn-mork);
+}
+
 /* Årshjul: tidslinje bygget på flate h2 + ul fra Markdown */
 
 .aarshjul {

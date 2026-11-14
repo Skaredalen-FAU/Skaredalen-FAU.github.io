@@ -9,6 +9,12 @@ const { neste_mote, klokkeslett, sted, deltakere, oppmote_skjema, oppmote_apner 
 const apnerKl = oppmote_apner ?? '19:20';
 const detaljer = [klokkeslett && `Kl. ${klokkeslett}`, sted].filter(Boolean).join(' · ');
 const { facebook } = (await hentSide('kontakt')).data;
+// Passerte møter tas ut ved bygging; de som passerer etterpå skjules i nettleseren.
+const idag = new Date().toISOString().slice(0, 10);
+const andreMoter = (side.data.andre_moter ?? [])
+  .map((mote) => ({ ...mote, iso: mote.dato.toISOString().slice(0, 10) }))
+  .filter((mote) => mote.iso >= idag)
+  .sort((a, b) => a.iso.localeCompare(b.iso));
 ---
 
 <Side tittel={side.data.tittel} ingress={side.data.ingress}>
@@ -33,6 +39,25 @@ const { facebook } = (await hentSide('kontakt')).data;
       )
     }
   </section>
+
+  {
+    andreMoter.length > 0 && (
+      <section class="andre-moter">
+        <h2>Andre møter</h2>
+        {andreMoter.map((mote) => (
+          <article class="boks" data-utloper={mote.iso}>
+            <h3>{mote.tittel}</h3>
+            <p class="andre-mote-dato">
+              {formaterDato(mote.dato)}
+              {mote.klokkeslett && <>, kl. {mote.klokkeslett}</>}
+              {mote.sted && <> · {mote.sted}</>}
+            </p>
+            {mote.tekst && <p>{mote.tekst}</p>}
+          </article>
+        ))}
+      </section>
+    )
+  }
 
   {
     facebook && (
@@ -60,6 +85,13 @@ const { facebook } = (await hentSide('kontakt')).data;
 <script is:inline>
   // Siden bygges bare når noe endres, så en passert møtedato skjules i nettleseren.
   (() => {
+    const iDag = new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Oslo' }).slice(0, 10);
+    for (const mote of document.querySelectorAll('[data-utloper]')) {
+      if (mote.dataset.utloper < iDag) mote.remove();
+    }
+    const seksjon = document.querySelector('.andre-moter');
+    if (seksjon && !seksjon.querySelector('[data-utloper]')) seksjon.remove();
+
     const boks = document.querySelector('[data-dato]');
     if (!boks) return;
     const slutt = new Date(boks.dataset.dato + 'T23:59:59');

@@ -13,6 +13,14 @@ deltakere: Møtet er for styremedlemmer og representanter fra arbeidsgruppene.
 oppmote_skjema: https://docs.google.com/forms/d/e/1FAIpQLSeFUiAzGNaX9ooiPxqNj7l0Z52phgpH-wbzmJVGfKNRW1_zpw/viewform
 # Klokkeslettet må stå i anførselstegn og skrives slik: "19:00".
 oppmote_apner: "19:20"
+# Andre møter som vises under FAU-møtet, f.eks. SU-møter. Et møte forsvinner av seg selv dagen etter.
+# Kopier en blokk (fra "- tittel" og ned) for å legge til flere.
+andre_moter:
+  - tittel: SU-møte (samarbeidsutvalget)
+    dato: 2026-12-10
+    klokkeslett: "18.00–19.30"
+    sted: Personalrommet
+    tekst: Medlemmene av SU legger inn saker (status og nytt) i det felles dokumentet innen tirsdag 8. desember.
 ---
 
 ## Om møtene
