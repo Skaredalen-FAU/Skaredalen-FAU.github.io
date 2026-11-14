@@ -19,7 +19,7 @@ Alt innhold ligger i mappen [`innhold`](innhold). Du trenger ikke installere noe
 | 17. mai | `innhold/17-mai.md` |
 | Smarttelefonfri skole (veilederen) | `innhold/smarttelefonfri-skole.md` |
 | Styret | `innhold/styret.md` |
-| Vedtekter | `innhold/vedtekter.md` |
+| Vedtekter (og høringen) | `innhold/vedtekter.md` |
 | E-post, telefon og Facebook-lenke | `innhold/kontakt.md` |
 | Teksten på forsiden | `innhold/forside.md` |
 | Saker under «Nytt fra FAU» på forsiden | `innhold/forsidesaker/` (én fil per sak, de tre nyeste vises, skjules med `vis: false`) |

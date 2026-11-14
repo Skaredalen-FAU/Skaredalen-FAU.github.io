@@ -5,6 +5,8 @@ import { hentSide } from '../../lib/innhold';
 
 const side = await hentSide('vedtekter');
 const { Content } = await render(side);
+const { epost } = (await hentSide('kontakt')).data;
+const innspillLenke = epost && `mailto:${epost}?subject=${encodeURIComponent('Innspill til vedtektene')}`;
 ---
 
 <Side
@@ -13,6 +15,38 @@ const { Content } = await render(side);
   tilbake={{ href: '/om/', tekst: 'Om FAU' }}
   underArbeid={side.data.under_arbeid}
 >
+  {
+    side.data.hoering && (
+      <section class="boks">
+        <h2>Utkastet er på høring</h2>
+        <p>
+          Vedtektene er ikke vedtatt ennå. Les utkastet under eller last det ned som PDF, og send oss innspill på
+          e-post.
+        </p>
+        <p class="knapper">
+          {side.data.pdf && (
+            <a class="knapp" href={side.data.pdf}>
+              Last ned utkastet (PDF)
+            </a>
+          )}
+          {innspillLenke && (
+            <a class="knapp knapp-sekundaer" href={innspillLenke}>
+              Send innspill
+            </a>
+          )}
+        </p>
+      </section>
+    )
+  }
+  {
+    !side.data.hoering && side.data.pdf && (
+      <p>
+        <a class="knapp" href={side.data.pdf}>
+          Last ned vedtektene (PDF)
+        </a>
+      </p>
+    )
+  }
   <div class="tekst">
     <Content />
   </div>

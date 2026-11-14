@@ -61,6 +61,7 @@ const sider = defineCollection({
     vis: z.boolean().nullable().optional(),
     // smarttelefonfri skole
     pdf: tekst,
+    hoering: z.boolean().nullable().optional(),
     // styret
     roller: z
       .array(z.object({ rolle: z.string(), navn: tekst }))

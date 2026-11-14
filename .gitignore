@@ -4,3 +4,5 @@ dist/
 .claude/
 # Originalbilder (store filer med metadata). Nettversjonene ligger i public/bilder.
 /Bilder/
+# Lokale arbeidsdokumenter. Filer som skal publiseres legges i public/dokumenter.
+/dokumenter/
