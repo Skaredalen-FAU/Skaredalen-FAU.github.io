@@ -20,7 +20,7 @@ andre_moter:
     dato: 2026-12-10
     klokkeslett: "18.00–19.30"
     sted: Personalrommet
-    tekst: Medlemmene av SU legger inn saker (status og nytt) i det felles dokumentet innen tirsdag 8. desember. SU-representantene finner dette i innkallingen fra rektor.
+    tekst: SU-representantene finner møteinformasjon i innkallingen fra rektor.
 ---
 
 ## Om møtene
